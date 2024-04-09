@@ -1,0 +1,163 @@
+@import url(/css/variables.css);
+
+::-moz-selection { /* Code for Firefox */
+  color: rgb(0, 0, 0);
+  background: #efb0ff;
+}
+
+::selection {
+  color: rgb(95, 95, 95);
+  background: #efb0ff;
+}
+
+
+body {
+  background: url(https://i.pinimg.com/originals/d4/c2/fb/d4c2fb7bb5c8bb7338b26346909afe87.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+body:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8); 
+z-index: 1;
+}
+body > * {
+position: relative;
+z-index: 2;
+}
+
+
+.temp-rectangle {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 700px;
+height: 350px;
+border-radius: 25px;
+background-color: white;
+}
+
+.line {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 650px;
+height: 1px;
+border-radius: 5px;
+background-color: rgba(254, 186, 255, 0.562);
+opacity: 0.6;
+}
+
+.pfp {
+position: fixed;
+top: 45%;
+left: 62.5%;
+transform: translate(-240%, -125%);
+width: 130px;
+height: 125px;
+filter: drop-shadow(0 0 10px #efb0ff);
+border-radius: 90px;
+}
+
+#triptych-name {
+position: fixed;
+font-size: 45px;
+top: 62%;
+left: 54.5%;
+transform: translate(-90%, -400%);
+color: #e992ff;
+filter: drop-shadow(0 0 10px #efb0ff);
+font-family: 'Futura', 'Futura PT', 'FuturaStd-Light', 'Futura Std Light', 'FuturaStd-Book', 'Futura Std Book', 'Futura PT Book', 'Futura', sans-serif;
+}
+
+#telegram-hover {
+position: fixed;
+top: 45%;
+left: 50%;
+width: 40px;
+height: 40px;
+transform: translate(-50%, 175%);
+filter: drop-shadow(0 0 5px #efb0ff);
+transition: transform 0.5s ease;
+}
+
+#telegram-hover:hover {
+transform: translate(-50%, 175%) scale(1.3);
+}
+
+.github {
+position: fixed;
+top: 45%;
+left: 52%;
+width: 50px;
+height: 50px;
+transform: translate(50%, 130%);
+filter: drop-shadow(0 0 5px #efb0ff);
+transition: transform 0.5s ease;
+}
+
+.github:hover {
+transform: translate(50%, 130%) scale(1.3);
+}
+
+.discord {
+position: fixed;
+top: 45%;
+left: 48%;
+width: 45px;
+height: 32px;
+transform: translate(-165%, 237%);
+transition: transform 0.5s ease;
+filter: drop-shadow(0 0 10px #efb0ff);
+}
+
+.discord:hover {
+
+transform: translate(-165%, 237%) scale(1.3);
+}
+
+.quote {
+position:fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: #e992ff;
+filter: drop-shadow(0 0 6px #efb0ff);
+}
+
+.aka {
+position: fixed;
+top: 57.8%;
+left: 45%;
+transform: translate(-150%, -600%);
+opacity: 0.7;
+color: #e992ff;
+filter: drop-shadow(0 0 4px #efb0ff);
+font-family: 'Futura', 'Futura PT', 'FuturaStd-Light', 'Futura Std Light', 'FuturaStd-Book', 'Futura Std Book', 'Futura PT Book', 'Futura', sans-serif;
+}
+
+#snow {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+pointer-events: none;
+}
+
+a {
+
+  text-decoration:none;
+  color:#e992ff
+
+}
+

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ovrdsin ~ swatme.today</title>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                return false;
+            }
+        }
+    </script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="swatme.today">
+<meta property="og:url" content="https://swatme.today">
+<meta property="og:title" content="@overdosin ~ SQUABBLE ME NIGGA!">
+<meta property="og:description" content="click me baby >_<">
+<script>
+    const titles = ["~ovrdsin", "skid me >_<", "hit my site!", "i did that (maybe)", "penis fart", "swatme.today", "skidiot", "smokin your deads!", "if your 40 hmu"];
+
+    function changeTitle() {
+        let index = 0;
+        return function() {
+            document.title = titles[index];
+            index = (index + 1) % titles.length;
+        };
+    }
+
+    setInterval(changeTitle(), 150);
+</script>
+<link rel="stylesheet" href="/o/style.css">
+
+</head>
+
+<body>
+<div id="button"><b class="next glowing-text">press me >_0</b></div>
+<div id="blur-box1">
+<div id="profile-picture">
+<img src="/o/image/pfpl.png" alt="Profile Picture">
+</div>
+<div id="username">ovrdsin <3</div>
+<div id="bio">discord.gg/oops | discord: ovrdsin | hit my site off</div>
+<a href="http://overdosin.lol" class="social-icon"><img src="/o/image/globe.png" /></a>
+<a href="https://discord.gg/oops" class="discord-stuff"><img src="/o/image/dicord.png" /></a>
+</div>
+<video id="video-background" loop>
+<source src="/o/videos/piggy back.mp4" type="video/mp4">
+</video>
+<script>
+        document.getElementById("button").addEventListener("click", function () {
+            var button = this;
+            button.style.animation = "fadeout 1s forwards";
+
+            var bgAudio = document.getElementById("video-background"); 
+            document.getElementById("blur-box1").style.display = "block";
+            document.getElementById("video-background").style.display = "block";
+            bgAudio.play();
+        });
+</script>
+</body>
+</html>
