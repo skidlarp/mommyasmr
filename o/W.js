@@ -20,9 +20,9 @@ const v = window.enmity.modules.common.Toasts;
 const T = window.enmity.modules.common.StyleSheet;
 const l = window.enmity.modules.common.ColorMap;
 
-const definePlugin = require("@utils/types").default;
-const { StartAt, OptionType } = require("@utils/types");
-const { Settings } = require("@api/Settings");
+const { definePlugin } = require('@utils/types');
+const { StartAt, OptionType } = require('@utils/types');
+const { Settings } = require('@api/Settings');
 
 const E = {
     name: "DeviceSpoof",
@@ -36,7 +36,7 @@ const E = {
     ],
     onStart() {
         const u = window.enmity.patcher.create(E.name);
-
+        
         u.before(k, "openLazy", (o, [n, i, m]) => {
             const y = m == null ? void 0 : m.message;
             if (i !== "MessageLongPressActionSheet" || !y || !n) return;
@@ -64,7 +64,7 @@ const E = {
     }
 };
 
-window.enmity.plugins.registerPlugin(E);
+V(E);
 
 module.exports = definePlugin({
     name: "DeviceSpoof",
@@ -72,15 +72,15 @@ module.exports = definePlugin({
     authors: [
         {
             id: "1162674474496307210",
-            name: "Bandwidth",
+            name: "EinTim",
         },
     ],
-    startAt: StartAt.Init, //we need this so we have our patches applied before the fast connect
+    startAt: StartAt.Init, // We need this so we have our patches applied before the fast connect
     patches: [
         {
             find: "this.handleIdentify()",
             replacement: {
-                match: /let (.)=this\.handleIdentify\(\);/g, // there are two occurrences of this, one on fast connect and one on the normal connect
+                match: /let (.)=this\.handleIdentify\(\);/g, // There are two occurrences of this, one on fast connect and one on the normal connect
                 replace: "$&;$1.properties.browser=$self.getBrowserType();",
             }
         }
