@@ -1,1 +1,79 @@
-function V(o){window.enmity.plugins.registerPlugin(o)}const r={byProps:(...o)=>window.enmity.modules.filters.byProps(...o),byName:(o,n)=>window.enmity.modules.filters.byName(o,n),byTypeName:(o,n)=>window.enmity.modules.filters.byTypeName(o,n),byDisplayName:(o,n)=>window.enmity.modules.filters.byDisplayName(o,n)};function D(...o){return window.enmity.modules.bulk(...o)}function c(...o){return window.enmity.modules.getByProps(...o)}const M=window.enmity.modules.common,O=window.enmity.modules.common.Constants,f=window.enmity.modules.common.Clipboard;window.enmity.modules.common.Assets,window.enmity.modules.common.Messages,window.enmity.modules.common.Clyde,window.enmity.modules.common.Avatars,window.enmity.modules.common.Native;const t=window.enmity.modules.common.React;window.enmity.modules.common.Dispatcher,window.enmity.modules.common.Storage;const v=window.enmity.modules.common.Toasts;window.enmity.modules.common.Dialog,window.enmity.modules.common.Token,window.enmity.modules.common.REST,window.enmity.modules.common.Settings,window.enmity.modules.common.Users;const R=window.enmity.modules.common.Navigation;window.enmity.modules.common.NavigationNative,window.enmity.modules.common.NavigationStack,window.enmity.modules.common.Theme,window.enmity.modules.common.Linking;const T=window.enmity.modules.common.StyleSheet,l=window.enmity.modules.common.ColorMap;window.enmity.modules.common.Components,window.enmity.modules.common.Locale,window.enmity.modules.common.Profiles,window.enmity.modules.common.Lodash,window.enmity.modules.common.Logger,window.enmity.modules.common.Flux,window.enmity.modules.common.SVG,window.enmity.modules.common.Scenes,window.enmity.modules.common.Moment;function _(o){return window.enmity.patcher.create(o)}function a(o){return window.enmity.assets.getIDByName(o)}function z(o,n,i){return window.enmity.utilities.findInReactTree(o,n,i)}var H="PlatformSpoofer",G="1.0.0",J="Spoof as Console platform",K=[{name:"$Bandwidth",id:"123456789012345678"}],E={name:H,version:G,description:J,authors:K};const{components:e}=window.enmity;e.Alert,e.Button,e.FlatList;const U=e.Image;e.ImageBackground,e.KeyboardAvoidingView,e.Modal,e.Pressable,e.RefreshControl;const W=e.ScrollView;e.SectionList,e.StatusBar,e.StyleSheet,e.Switch,e.Text,e.TextInput,e.TouchableHighlight,e.TouchableOpacity,e.TouchableWithoutFeedback,e.Touchable,e.View,e.VirtualizedList,e.Form,e.FormArrow,e.FormCTA,e.FormCTAButton,e.FormCardSection,e.FormCheckbox,e.FormDivider,e.FormHint,e.FormIcon,e.FormInput,e.FormLabel,e.FormRadio,e.FormRow,e.FormSection,e.FormSelect,e.FormSubLabel,e.FormSwitch,e.FormTernaryCheckBox,e.FormText,e.FormTextColors,e.FormTextSizes;const u=_(E.name),Z={...E,onStart(){u.before("_doIdentify",window,([o])=>{o&&o.properties&&(o.properties.browser="Console")})},onStop(){u.unpatchAll()}};V(Z);
+const V = (o) => window.enmity.plugins.registerPlugin(o);
+
+const r = {
+    byProps: (...o) => window.enmity.modules.filters.byProps(...o),
+    byName: (o, n) => window.enmity.modules.filters.byName(o, n),
+    byTypeName: (o, n) => window.enmity.modules.filters.byTypeName(o, n),
+    byDisplayName: (o, n) => window.enmity.modules.filters.byDisplayName(o, n),
+};
+
+function D(...o) {
+    return window.enmity.modules.bulk(...o);
+}
+
+function c(...o) {
+    return window.enmity.modules.getByProps(...o);
+}
+
+const t = window.enmity.modules.common.React;
+const v = window.enmity.modules.common.Toasts;
+const T = window.enmity.modules.common.StyleSheet;
+const l = window.enmity.modules.common.ColorMap;
+const R = window.enmity.modules.common.Navigation;
+const _ = (o) => window.enmity.patcher.create(o);
+
+const settings = {
+    store: {
+        platform: "desktop",
+    },
+    options: [
+        { label: "Desktop", value: "desktop", default: true },
+        { label: "Web", value: "web" },
+        { label: "Mobile", value: "mobile" },
+        { label: "Console", value: "console" },
+    ],
+};
+
+const getPlatform = () => {
+    switch (settings.store.platform ?? "desktop") {
+        case "desktop":
+            return { browser: "Discord Client" };
+        case "web":
+            return { browser: "Chrome" };
+        case "mobile":
+            return { browser: "Discord iOS" };
+        case "console":
+            return { browser: "Console" };
+    }
+};
+
+const E = {
+    name: "PlatformSpoofer",
+    version: "1.0.0",
+    description: "Spoof what platform or device you're on",
+    authors: [
+        {
+            name: "$Bandwidth",
+            id: "123456789012345678",
+        },
+    ],
+};
+
+const u = _(E.name);
+
+const Z = {
+    ...E,
+    onStart() {
+        u.before(c("identify"), "_doIdentify", ([identify]) => {
+            identify.properties = {
+                ...identify.properties,
+                ...getPlatform(),
+            };
+        });
+    },
+    onStop() {
+        u.unpatchAll();
+    },
+};
+
+V(Z);
